@@ -1,0 +1,15 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <h1>{{title}}</h1>
+    <div class="contenu" id="tweet_container">		
+    <script src="/js/deleteTweet.js" defer></script>
+        {% for tweet in tweets %}
+            <div class="tweetCard">
+            <b>Noah</b>
+                <p>{{tweet.content}}</p>
+                <h1 class="delete" tweetId="{{tweet._id}}">Supprimer</h1>
+            </div> <br> 
+        {% endfor %}
+    </div>
+{% endblock %}

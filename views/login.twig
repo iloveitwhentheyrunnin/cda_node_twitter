@@ -1,0 +1,33 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <h1>{{title}}</h1>
+
+<div class="contenu">
+	<p>Connectez-vous pour suivre l'actualité.</p>
+</div>
+
+<div class="login_container">
+
+	<form method="post" accept-charset="UTF-8">
+		<h3>
+			<label for="loginName">Log in to your account</label>
+		</h3>
+		<input id="loginName" type="text" name="loginName" placeholder="Your username">
+        <input id="pass" type="password" name="password" placeholder="Your password">
+
+		{% if errors is defined %}
+			<ul class="errors">
+				{% for error in errors %}
+					<li>{{ error }}</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+
+        <button type="submit">Authenticate</button>
+	</form>
+
+</div>
+
+{% endblock %}
+
