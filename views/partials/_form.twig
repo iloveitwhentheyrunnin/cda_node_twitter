@@ -1,0 +1,10 @@
+
+<form action={{ tweet._id ? "/tweet/edit/" ~ tweet._id : "/tweet/new" }} method="POST">
+			<textarea maxlength="140" name="content">{{tweet.content}}</textarea>
+			{% if errors %}
+				{% for error in errors %}
+					<div class="error">{{error}}</div>
+				{% endfor %}
+			{% endif %}
+			<button type="submit">Tweet</button>
+</form>

@@ -8,7 +8,7 @@ window.addEventListener('DOMContentLoaded', () => {
             const tweetId = event.target.getAttribute('tweetid');
             axios.delete(`/tweet/${tweetId}`)
                 .then(response => {
-                    btn.parentNode.parentNode.remove()
+                    btn.parentNode.remove()
                 })
                 .catch(error => {
                     console.log(error)

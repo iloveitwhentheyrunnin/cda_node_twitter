@@ -8,7 +8,8 @@
             <div class="tweetCard">
             <b>Noah</b>
                 <p>{{tweet.content}}</p>
-                <h1 class="delete" tweetId="{{tweet._id}}">Supprimer</h1>
+                <h1 class="delete" tweetId="{{tweet._id}}">Delete</h1>
+                <a href="/tweet/edit/{{tweet._id}}"><h1 class="edit">Edit</h1></a>
             </div> <br> 
         {% endfor %}
     </div>
