@@ -1,16 +1,21 @@
-exports.signupForm = (req, res, next) => {
-    try{
+const { createUser } = require("../database/queries/user.queries");
 
-    } catch (error){
-        next(error)
-    }
-}
 
 exports.signup = (req, res, next) => {
     try{
         res.render('auth/signup.twig')
     } catch (error){
         next(error)
+    }
+}
+
+exports.signupForm = async (req, res, next) => {
+    const body = req.body;
+    try{
+        const user = await createUser(body)
+        res.redirect('/');
+    } catch (error){
+        res.render('auth/signup.twig', {errors: [error.message]})
     }
 }
 
