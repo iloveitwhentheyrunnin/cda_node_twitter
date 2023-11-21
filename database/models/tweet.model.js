@@ -7,6 +7,8 @@ const tweetSchema = schema({
         maxlength: 140, 
         minlength: 1, 
         required: [true, 'Le tweet ne peut être vide']}
+},{
+    timestamps:true
 })
 
 const Tweet = mongoose.model('tweet', tweetSchema);

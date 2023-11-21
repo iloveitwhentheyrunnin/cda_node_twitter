@@ -4,6 +4,10 @@
     color: white;
 }
 
+a {
+  text-decoration: none;
+}
+
 html {
     min-height: 100vh;
     display: flex;
@@ -123,19 +127,21 @@ ul {
   .tweetCard{
     background: transparent;
     border: 1px solid rgb(29, 155, 240);
-    height: 100px;
     padding: 10px;
     text-align: left;
     border-radius: 8px;
+    width: 350px;
   }
 
   .tweetCard p{
     background-color: transparent;
+    width: 80%;
   }
 
   .tweetCard h1{
+    text-align: right;
     font-size: 10px;
-    color: red;
+    color: #0093ff;
     cursor: pointer;
     background: transparent;
   }

@@ -1,0 +1,38 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <h1>{{title}}</h1>
+
+<div class="contenu">
+	<p>Create an account and start surfing!</p>
+</div>
+
+<div class="login_container">
+
+	<form method="/user/signupForm" method="post">
+		<h3>
+			<label for="loginName">Sign Up to Tweeter</label>
+		</h3>
+		<input id="username" type="text" name="username" placeholder="Username">
+		<input id="userEmail" type="email" name="email" placeholder="Email">
+        <input id="userPass" type="password" name="password" placeholder="Password">
+
+		{% if errors is defined %}
+			<ul class="errors">
+				{% for error in errors %}
+					<li>{{ error }}</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+
+        <button type="submit">Sign Up</button>
+
+		<a href="signin">
+		<p>Already have an account?</p>
+		</a>
+	</form>
+
+</div>
+
+{% endblock %}
+

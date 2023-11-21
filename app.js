@@ -2,24 +2,19 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const path = require('path');
-const routing = require('./routes')
-const app = express();
+const routing = require('./routes');
 const dotenv = require('dotenv');
 
-dotenv.config();
-const {
-  APP_HOSTNAME,
-  APP_PORT,
-  NODE_ENV,
-  APP_SECRET,
-  MONGO_STRING,
-  MONGO_DB_NAME
-} = process.env;
+const app = express();
+exports.app = app;
 
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'twig');
 
+require('./config/session.config');
+
 app.use(morgan('short'))
+
 app.use(express.static(path.join(__dirname,'public')))
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
@@ -35,7 +30,7 @@ try {
     // ==========
 
     app.listen(3001, () => {
-        console.log(`App listening at http://${APP_HOSTNAME}:${APP_PORT}`);
+        console.log(`App listening`);
     });
 }
 catch (err) {
